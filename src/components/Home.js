@@ -7,8 +7,9 @@ import AddDocument from  './AddDocument';
 import NavigationBar from './NavigationBar';
 
 const Home = () => {
+  
   return (
-   
+
       <div>
         <NavigationBar />
         <BlogList/>

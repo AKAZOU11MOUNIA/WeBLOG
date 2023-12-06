@@ -9,7 +9,7 @@ const containerStyle = {
   flexWrap: 'wrap',
   justifyContent: 'space-around',
   padding: '20px',
-  backgroundColor: '#f5f5dc', // Beige
+  backgroundColor: 'rgba(224, 224, 224, 0)', 
 };
 
 const cardStyle = {
@@ -17,25 +17,27 @@ const cardStyle = {
   margin: '20px',
   padding: '15px',
   borderRadius: '10px',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-  backgroundColor: '#fff', // Blanc
+  boxShadow: '3px 4px 8px rgba(255, 255, 255, 0.7)',
+  backgroundColor: 'rgba(0, 0, 0, 0.3)', // Blanc
 };
 
 const titleStyle = {
-  fontSize: '1.5em',
+  fontSize: '25px',
   fontWeight: 'bold',
-  color: '#543c28', // Marron foncé
+  color: '#BBDEFB', // Marron foncé
 };
 
 const contentStyle = {
   marginTop: '10px',
-  color: '#000000', // Noir
+  color: 'white', 
+  fontSize:'15px'
 };
 
 const readMoreLinkStyle = {
-  color: '#a0522d', 
+  color: '#18FFFF', 
   textDecoration: 'none',
   cursor: 'pointer',
+
 };
 
 const BlogList = () => {

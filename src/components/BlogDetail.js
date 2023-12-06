@@ -6,18 +6,23 @@ import { db } from '../firebase.js';
 
 const containerStyle = {
   padding: '20px',
-  backgroundColor: '#f5f5dc', // Beige
+  backgroundColor: 'rgba(0, 0, 0, 0.3)', 
+  borderRadius: '10px',
+  boxShadow: '3px 4px 8px rgba(255, 255, 255, 0.7)',
+  marginLeft:'20px',
+  marginRight:'20px'
 };
 
 const titleStyle = {
-  fontSize: '2em',
+  fontSize: '25px',
   fontWeight: 'bold',
-  color: '#543c28', // Marron foncé
+  color: '#BBDEFB',
+  margin:'-10px 3px'
 };
 
 const contentStyle = {
-  marginTop: '10px',
-  color: '#000000', // Noir
+  marginTop: '25px',
+  color: 'white', 
 };
 
 const BlogDetail = () => {

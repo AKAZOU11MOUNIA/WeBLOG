@@ -1,3 +1,11 @@
+body{
+  
+    background: url(https://images2.alphacoders.com/718/7182.jpg) no-repeat center center;
+    background-size: cover;
+    margin-top: -30px;
+    
+}
+
 .App {
   text-align: center;
 }

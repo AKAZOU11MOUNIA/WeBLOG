@@ -4,6 +4,7 @@ import BlogList from './components/BlogList';
 import BlogDetail from './components/BlogDetail'; // Importez BlogDetail
 import AddDocument from './components/AddDocument';
 import NavigationBar from './components/NavigationBar';
+import './App.css';
 
 const App = () => {
   return (
