@@ -17,14 +17,14 @@ const cardStyle = {
   margin: '20px',
   padding: '15px',
   borderRadius: '10px',
-  boxShadow: '3px 4px 8px rgba(255, 255, 255, 0.7)',
+  boxShadow: '3px 4px 8px rgba(255, 204, 188, 0.7)',
   backgroundColor: 'rgba(0, 0, 0, 0.3)', // Blanc
 };
 
 const titleStyle = {
   fontSize: '25px',
   fontWeight: 'bold',
-  color: '#BBDEFB', // Marron foncé
+  color: '#80CBC4', 
 };
 
 const contentStyle = {
@@ -34,9 +34,11 @@ const contentStyle = {
 };
 
 const readMoreLinkStyle = {
-  color: '#18FFFF', 
+  color: '#FFB74D', 
   textDecoration: 'none',
   cursor: 'pointer',
+  positio:'absolute',
+  bottom:'0'
 
 };
 

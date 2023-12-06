@@ -9,11 +9,12 @@ const NavigationBar = () => {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor:'rgba(245, 245, 245,0)'
+    backgroundColor:'rgba(245, 245, 245,0)',
+    padding:'60px'
   };
   const linkStyle = {
     textDecoration: 'none',
-    color: '#333', // Dark gray
+    color: '#333', 
     fontSize: '12px',
     fontWeight: 'bold',
   };
@@ -21,29 +22,34 @@ const NavigationBar = () => {
   const [isFocused, setIsFocused] = useState(false);
   const buttonStyle={
     borderRadius: '39px',
-    border:'3px solid #1A237E',
-    borderColor:'#1A237E',
+    border:'3px solid #1B5E20',
+    borderColor:'#1B5E20',
     height: '50px',
     width: '200px',
     backgroundColor: 'rgba(225, 245, 254,0)',
     textDecoration: 'none',
     fontSize: '1.2em',
     fontWeight: 'bold',
-    color:'#B3E5FC',
+    color:'#00695C',
     //Animation des buttons:
     
-    boxShadow: isHovered || isFocused ? '0.5em 0.5em 0.5em -0.4em rgba(225, 245, 254, 1)' : 'none',
+    boxShadow: isHovered || isFocused ? '0.5em 0.5em 0.5em -0.4em rgba(255, 238, 88, 1)' : 'none',
     transform: isHovered || isFocused ? 'translateY(-0.55em)' : 'none',
     cursor: 'pointer',
     //position dans le navBar:
-    marginTop:'80px',
+    marginTop:'-80px',
+    marginLeft:'-450px'
+
+    
+
     
     
   };
   const logoStyle={
     height:'130px',
-    marginTop:'25px',
-    marginLeft:'-100px'
+    marginTop:'-45px',
+    marginLeft:'-199px',
+    marginRight:'200px'
   }
 
   return (

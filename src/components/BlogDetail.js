@@ -5,18 +5,19 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase.js';
 
 const containerStyle = {
-  padding: '20px',
-  backgroundColor: 'rgba(0, 0, 0, 0.3)', 
+  backgroundColor: 'rgba(0, 0, 0, 0.5)', 
   borderRadius: '10px',
-  boxShadow: '3px 4px 8px rgba(255, 255, 255, 0.7)',
-  marginLeft:'20px',
-  marginRight:'20px'
+  boxShadow: '3px 4px 8px rgba(255, 255, 255, 0.8)',
+  marginLeft:'30px',
+  marginRight:'30px',
+  marginTop:'-55px',
+  padding:'50px',
 };
 
 const titleStyle = {
-  fontSize: '25px',
+  fontSize: '35px',
   fontWeight: 'bold',
-  color: '#BBDEFB',
+  color: '#80CBC4',
   margin:'-10px 3px'
 };
 
