@@ -24,7 +24,7 @@ module.exports = function override(config, env) {
     })
   );
 
-  // Additional webpack configurations can be added here
+  // Additional webpack configurations can be added 
 
   return config;
 };

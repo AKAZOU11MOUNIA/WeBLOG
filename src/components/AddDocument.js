@@ -33,7 +33,7 @@ const AddDocument = () => {
   const [content, setContent] = useState('');
   const natural = require('natural');
   const tokenizer = new natural.WordTokenizer();
-  const stopWords = require('stopwords').english; // Assurez-vous d'installer la bibliothèque stopwords
+  const stopWords = require('stopwords').english; 
   const lemmatizer = require('wink-lemmatizer');
   //var lemmatizer = new Lemmatizer();
 
@@ -66,7 +66,7 @@ const AddDocument = () => {
   };
 
   const createIndex = (title, content) => {
-    // Concaténez le titre et le contenu, divisez en mots et convertissez en minuscules
+    // Concaténation du titre et contenu, et division en mots et conversion en minuscules
     const text = `${title} ${content}`.toLowerCase();
   
     // Tokenisation du texte
