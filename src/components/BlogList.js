@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase.js';
 import { Link } from 'react-router-dom';
+import {  query, where} from 'firebase/firestore';
+
 
 const containerStyle = {
   display: 'flex',
@@ -40,6 +42,7 @@ const readMoreLinkStyle = {
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -52,7 +55,35 @@ const BlogList = () => {
     fetchBlogs();
   }, []);
 
+  const handleSearch = async () => {
+    try {
+      const blogsCollection = collection(db, 'file');
+      //const q = query(blogsCollection, where('index', '=', searchTerm));
+      
+      const q = query(blogsCollection, where('index', 'array-contains', searchTerm.toLowerCase()));
+      const querySnapshot = await getDocs(q);
+
+      const results = [];
+      querySnapshot.forEach((doc) => {
+        results.push({ id: doc.id, ...doc.data() });
+      });
+
+      setBlogs(results);
+    } catch (error) {
+      console.error('Error searching blogs:', error);
+    }
+  };
+
   return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search by title"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+
     <div style={containerStyle} className="blog-list-container">
       {blogs.map(blog => (
         <div key={blog.name} style={cardStyle} className="blog-item">
@@ -61,6 +92,7 @@ const BlogList = () => {
           <Link to={`/blog/${blog.name}`} style={readMoreLinkStyle}>Read More</Link>
         </div>
       ))}
+    </div>
     </div>
   );
 };

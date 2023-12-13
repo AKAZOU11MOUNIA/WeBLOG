@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ref, uploadBytesResumable } from 'firebase/storage';
 import { collection, addDoc } from 'firebase/firestore'; // Import necessary Firestore functions
-import { storage, db } from '../firebase.js';
-import NavigationBar from './NavigationBar';
+import {  db } from '../firebase.js';
+
+
 
 const styles = {
   container: {
@@ -31,6 +31,11 @@ const styles = {
 const AddDocument = () => {
   const [name, setName] = useState('');
   const [content, setContent] = useState('');
+  const natural = require('natural');
+  const tokenizer = new natural.WordTokenizer();
+  const stopWords = require('stopwords').english; // Assurez-vous d'installer la bibliothèque stopwords
+  const lemmatizer = require('wink-lemmatizer');
+  //var lemmatizer = new Lemmatizer();
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -62,40 +67,21 @@ const AddDocument = () => {
 
   const createIndex = (title, content) => {
     // Concaténez le titre et le contenu, divisez en mots et convertissez en minuscules
-    const words = (title + ' ' + content).toLowerCase().split(/\s+/);
-    const wordFrequencyMap = {};
+    const text = `${title} ${content}`.toLowerCase();
   
-    // Liste des pronoms et mots sans importance à exclure de l'index
-    const stopWords = ['le', 'la', 'les', 'de', 'du', 'en', 'et', 'un', 'une', 'je', 'tu', 'il', 'elle', 'nous', 'vous', 'ils', 'elles', 'qui', 'que', 'quoi', 'à', 'ce', 'cette', 'avec', 'sur', 'sous', 'pour', 'par', 'pas'];
+    // Tokenisation du texte
+    const tokens = tokenizer.tokenize(text);
   
-    // Fonction pour accentuer les mots avec l'algorithme de CARRY
-    const carryAccentuation = (word) => {
-      // Votre logique d'accentuation ici, par exemple, doubler chaque lettre
-      return word.split('').map(letter => letter + letter).join('');
-    };
+    // Suppression des stop words
+    const filteredTokens = tokens.filter(token => !stopWords.includes(token));
   
-    // Filtrer les mots vides et les mots à exclure
-    const filteredWords = words.filter(word => word !== '' && !stopWords.includes(word));
+    // la lemmatisation
+    const lemmatizedTokens = filteredTokens.map(token => lemmatizer.noun(token));
+    console.log(lemmatizedTokens);
+    const index =  lemmatizedTokens ;
+    return index;
   
-    // Compter la fréquence de chaque mot
-    filteredWords.forEach(word => {
-      wordFrequencyMap[word] = (wordFrequencyMap[word] || 0) + 1;
-    });
-  
-    // Trier les mots par fréquence décroissante
-    const sortedWords = Object.keys(wordFrequencyMap).sort((a, b) => wordFrequencyMap[b] - wordFrequencyMap[a]);
-  
-    // Supprimer les doublons et conserver les 5 premiers mots (ajustez selon vos besoins)
-    const uniqueSortedWords = Array.from(new Set(sortedWords)).slice(0, 5);
-  
-    // Appliquer l'accentuation de CARRY à chaque mot
-    const accentuatedWords = uniqueSortedWords.map(word => carryAccentuation(word));
-  
-    // Retourner le titre et les mots accentués pour l'index
-    return { title, index: accentuatedWords };
   };
-  
-
   const addFileToFirestore = async (fileData) => {
     const filesCollection = collection(db, 'file');
     await addDoc(filesCollection, fileData);

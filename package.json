@@ -8,20 +8,38 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "browserify-fs": "^1.0.0",
     "elasticsearch": "^16.7.3",
     "express": "^4.18.2",
     "firebase": "^10.7.0",
+    "fs": "^0.0.1-security",
+    "lemmatizer": "^0.0.1",
+    "natural": "^6.10.3",
+    "os": "^0.1.2",
+    "os-browserify": "^0.3.0",
+    "path": "^0.12.7",
+    "path-browserify": "^1.0.1",
     "pdf-parse": "^1.1.1",
     "react": "^18.2.0",
+    "react-app-rewired": "^2.2.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "stopwords": "^0.0.9",
+    "tokenizer": "^1.1.2",
+    "util": "^0.12.5",
+    "web-vitals": "^2.1.4",
+    "wink-lemmatizer": "^3.0.4"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
