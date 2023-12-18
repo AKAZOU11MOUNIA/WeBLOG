@@ -5,19 +5,25 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase.js';
 
 const containerStyle = {
-  padding: '20px',
-  backgroundColor: '#f5f5dc', // Beige
+  backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+  borderRadius: '10px',
+  boxShadow: '3px 4px 8px rgba(255, 255, 255, 0.8)',
+  marginLeft:'30px',
+  marginRight:'30px',
+  marginTop:'-55px',
+  padding:'50px',
 };
 
 const titleStyle = {
-  fontSize: '2em',
+  fontSize: '35px',
   fontWeight: 'bold',
-  color: '#543c28', // Marron foncé
+  color: '#80CBC4',
+  margin:'-10px 3px'
 };
 
 const contentStyle = {
-  marginTop: '10px',
-  color: '#000000', // Noir
+  marginTop: '25px',
+  color: 'white', 
 };
 
 const BlogDetail = () => {
