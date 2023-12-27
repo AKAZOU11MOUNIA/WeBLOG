@@ -25,8 +25,8 @@ const NavigationBar = () => {
     borderRadius: '39px',
     border:'3px solid #1B5E20',
     borderColor:'#1B5E20',
-    height: '50px',
-    width: '200px',
+    height: '55px',
+    width: '210px',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     textDecoration: 'none',
     fontSize: '1.5em',
@@ -38,13 +38,13 @@ const NavigationBar = () => {
     transform: isHovered || isFocused ? 'translateY(-0.55em)' : 'none',
     cursor: 'pointer',
     //position dans le navBar:
-    marginTop:'-80px',
-    marginLeft:'-450px'
+    marginTop:'-33px',
+    marginLeft:'-10px'
   };
   const logoStyle={
     height:'130px',
     marginTop:'-45px',
-    marginLeft:'-199px',
+    marginLeft:'-139px',
     marginRight:'200px'
   };
   
@@ -61,13 +61,13 @@ const NavigationBar = () => {
         onBlur={() => setIsFocused(false)}
         >Accueil</button>
       </Link>
-      <Link to="/add" style={linkStyle}>
+      <Link to="/login" style={linkStyle}>
         <button style={buttonStyle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        >Ajouter un blog</button>
+        >Log In Pour Ajouter Blog</button>
       </Link>
     </div>
   );

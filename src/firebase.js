@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import { getAuth } from "firebase/auth";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -32,8 +33,8 @@ console.log('Firestore initialized successfully:', db);
 
 const storage = getStorage(app);
 console.log('Storage initialized successfully:', storage);
+const auth = getAuth(app);
 
 
 
-
-export { db, storage };
+export {auth, db, storage };
