@@ -66,10 +66,10 @@ const SignUp = ()=>{
         createUserWithEmailAndPassword(auth, email, password).
         then((userCredential)=>{ 
             console.log(userCredential);
-            alert("User is added! go back to the loggin page to add your blog");
+            alert("User is added! go back to the login page to add your blog");
         }).catch((error)=>{
             console.log(error);
-            alert("User already exists! go back to the loggin page to add your blog");
+            alert("User already exists! or The email address has an incorrect format !");
         })
     }
     return(
