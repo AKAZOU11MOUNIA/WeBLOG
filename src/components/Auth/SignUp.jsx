@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import {auth} from "../../firebase";
 import{createUserWithEmailAndPassword} from "firebase/auth";
-import { Link } from 'react-router-dom';
 //--------------------Style-----------------------: 
 
     const styles = {
@@ -65,10 +64,12 @@ const SignUp = ()=>{
     const signUp =(e)=>{
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password).
-        then((userCredential)=>{
+        then((userCredential)=>{ 
             console.log(userCredential);
+            alert("User is added! go back to the loggin page to add your blog");
         }).catch((error)=>{
             console.log(error);
+            alert("User already exists! go back to the loggin page to add your blog");
         })
     }
     return(
@@ -88,9 +89,7 @@ const SignUp = ()=>{
                 onChange={(e) =>setPassword(e.target.value)}
                 style={styles.input2}>
                 </input>
-                <Link to="/login">
-                <button type="submit" style={styles.button}>Sign up</button>
-                </Link>
+               <button type="submit" style={styles.button}>Sign up</button>
             </form>
         </div>
     );

@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {auth} from "../../firebase";
 import{signInWithEmailAndPassword} from "firebase/auth";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const styles = {
     container: {
       padding: '20px',
@@ -67,13 +67,16 @@ const styles = {
 const SignIn = ()=>{
     const[email,setEmail]=useState('');
     const[password,setPassword]=useState('');
+    const navigate = useNavigate();
     const signIn =(e)=>{
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password).
         then((userCredential)=>{
             console.log(userCredential);
+            navigate('/add');
         }).catch((error)=>{
             console.log(error);
+            alert("Connection failed")
         })
     }
     return(
@@ -93,9 +96,7 @@ const SignIn = ()=>{
                 onChange={(e) =>setPassword(e.target.value)}
                 style={styles.input2}>
                 </input>
-                <Link to="/add"> 
-                <button type="submit" href="/add" style={styles.button}>Log in</button>
-                </Link>
+                <button type="submit" style={styles.button}>Log in</button>
                 <i><b><a href='/signup' style={styles.ancre}>Don't have an account yet 🤔? Create an account now 😉!</a></b></i>
                 
             </form>
